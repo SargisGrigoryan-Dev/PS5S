@@ -1,0 +1,33 @@
+[   0.0201] INFO  [Boot     ] NID database: 411 libraries, 47684 symbols (44691 named) +3 from extra_names.txt
+[   0.0205] WARN  [Boot     ] 2 HLE export(s) have NIDs not found in the database (see --list-hle)
+[   0.0205] INFO  [Boot     ] ==============================================
+[   0.0205] INFO  [Boot     ]  PS5S experimental HLE emulator
+[   0.0205] INFO  [Boot     ] ==============================================
+[   0.0205] INFO  [Boot     ] [1/5] HLE kernel online: 467 exports in 12 libraries
+[   0.0205] INFO  [Boot     ] [2/5] Mounting virtual filesystem
+[   0.0207] INFO  [VFS      ] Mounted /app0    -> ps5sgames\OpenJazz\extracted\OpenJazz
+[   0.0212] INFO  [VFS      ] Mounted /data    -> build\data
+[   0.0212] INFO  [VFS      ] Mounted /system_ex -> build\sys
+[   0.0212] INFO  [Boot     ] [3/5] Starting display
+[   0.1808] INFO  [Vulkan   ] Device: NVIDIA GeForce RTX 5060 Ti (API 1.4, dynamic rendering yes)
+[   0.1896] INFO  [Vulkan   ] Presenter ready on NVIDIA GeForce RTX 5060 Ti
+[   0.1896] INFO  [Boot     ] Renderer: Vulkan
+[   0.1896] INFO  [Boot     ] [4/5] Loading executable: ps5sgames\OpenJazz\extracted\OpenJazz\openjazz.elf
+[   0.1916] INFO  [Loader   ] Mapped openjazz.elf [ET_DYN] at 000002397f730000 (0x374000 bytes)
+[   0.1927] INFO  [Loader   ] openjazz.elf: modules not found on disk (HLE/stubs used): libSceAudioOut.sprx, libSceKeyboard.sprx, libSceImeDialog.sprx, libSceLibcInternal.sprx, libSceNet.sprx
+[   0.1930] INFO  [Loader   ] openjazz.elf is a PS5 payload SDK program: PS5S links it and calls main() directly
+[   0.1930] INFO  [Loader   ] Linked openjazz.elf: 211 imports (211 HLE, 0 LLE, 0 stubbed), 0 exports
+[   0.1931] INFO  [Boot     ] [5/5] System running. Close the window to shut down.
+[   0.1940] INFO  [Runtime  ] Calling main() of openjazz.elf (2 constructor(s) ran, argc 1)
+[   0.1942] INFO  [Guest    ] 03:14:24 INFO  This is OpenJazz 20260301, built on 2026-10-10.
+[   0.1943] INFO  [Kernel   ] Created guest thread 'pthread'
+[   0.1943] INFO  [Pad      ] Pad library initialised (keyboard backend)
+[   0.1943] INFO  [SysSvc   ] Splash screen hidden
+[   0.1953] INFO  [Pad      ] Pad library initialised (keyboard backend)
+[   0.1957] INFO  [Guest    ] 03:14:24 WARN  Valid configuration file not found.
+[   0.1957] INFO  [Kernel   ] MapDirectMemory 0x4000000 bytes (phys 0x0) -> 00000239017e0000
+[   0.1958] INFO  [VideoOut ] Opened main video port (handle 1)
+[   0.1958] INFO  [VideoOut ] Registered 2 buffer(s) at index 0: 1920x1080 pitch 0 fmt 0x22000000 tiling 0
+[   0.1964] INFO  [Audio    ] Opened port 1: 48000 Hz, 2048 samples/grain, 2 channel(s) s16 (silent)
+[   0.1965] INFO  [Kernel   ] Created guest thread 'pthread'
+[   6.6771] INFO  [Boot     ] Shutdown (exit code 0)

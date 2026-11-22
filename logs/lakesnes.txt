@@ -1,0 +1,35 @@
+[   0.0191] INFO  [Boot     ] NID database: 411 libraries, 47684 symbols (44691 named) +3 from extra_names.txt
+[   0.0195] WARN  [Boot     ] 2 HLE export(s) have NIDs not found in the database (see --list-hle)
+[   0.0195] INFO  [Boot     ] ==============================================
+[   0.0196] INFO  [Boot     ]  PS5S experimental HLE emulator
+[   0.0196] INFO  [Boot     ] ==============================================
+[   0.0196] INFO  [Boot     ] [1/5] HLE kernel online: 467 exports in 12 libraries
+[   0.0196] INFO  [Boot     ] [2/5] Mounting virtual filesystem
+[   0.0198] INFO  [VFS      ] Mounted /app0    -> ps5sgames\LakeSnes\extracted\LakeSnes
+[   0.0203] INFO  [VFS      ] Mounted /data    -> build\data
+[   0.0203] INFO  [VFS      ] Mounted /system_ex -> build\sys
+[   0.0203] INFO  [Boot     ] [3/5] Starting display
+[   0.1483] INFO  [Vulkan   ] Device: NVIDIA GeForce RTX 5060 Ti (API 1.4, dynamic rendering yes)
+[   0.1573] INFO  [Vulkan   ] Presenter ready on NVIDIA GeForce RTX 5060 Ti
+[   0.1573] INFO  [Boot     ] Renderer: Vulkan
+[   0.1573] INFO  [Boot     ] [4/5] Loading executable: ps5sgames\LakeSnes\extracted\LakeSnes\lakesnes.elf
+[   0.1590] INFO  [Loader   ] Mapped lakesnes.elf [ET_DYN] at 0000017881350000 (0x278000 bytes)
+[   0.1600] INFO  [Loader   ] lakesnes.elf: modules not found on disk (HLE/stubs used): libSceAudioOut.sprx, libSceKeyboard.sprx, libSceImeDialog.sprx, libSceLibcInternal.sprx, libSceNet.sprx
+[   0.1603] INFO  [Loader   ] lakesnes.elf is a PS5 payload SDK program: PS5S links it and calls main() directly
+[   0.1603] INFO  [Loader   ] Linked lakesnes.elf: 228 imports (228 HLE, 0 LLE, 0 stubbed), 0 exports
+[   0.1604] INFO  [Boot     ] [5/5] System running. Close the window to shut down.
+[   0.1605] INFO  [Runtime  ] Calling main() of lakesnes.elf (0 constructor(s) ran, argc 2)
+[   0.1605] INFO  [SysSvc   ] Splash screen hidden
+[   0.1606] INFO  [Pad      ] Pad library initialised (keyboard backend)
+[   0.1606] INFO  [SysSvc   ] Splash screen hidden
+[   0.1614] INFO  [Pad      ] Pad library initialised (keyboard backend)
+[   0.1615] INFO  [Kernel   ] MapDirectMemory 0x4000000 bytes (phys 0x0) -> 0000017881de0000
+[   0.1615] INFO  [VideoOut ] Opened main video port (handle 1)
+[   0.1615] INFO  [VideoOut ] Registered 2 buffer(s) at index 0: 1920x1080 pitch 0 fmt 0x22000000 tiling 0
+[   0.1626] INFO  [Audio    ] Opened port 1: 48000 Hz, 2048 samples/grain, 2 channel(s) s16 (silent)
+[   0.1626] INFO  [Kernel   ] Created guest thread 'pthread'
+[   0.1628] INFO  [Guest    ] LakeSnes - Running with SDL 2.30.12 (compiled with 2.30.12)
+[   0.1633] INFO  [Guest    ] Loaded LoROM rom (PAL)
+[   0.1633] INFO  [Guest    ] "ELIX 2014 - SMASH IT"
+[   0.1633] INFO  [Guest    ] 32K banks: 32, ramsize: 0, coprocessor: 0
+[   5.0166] INFO  [Boot     ] Shutdown (exit code 0)

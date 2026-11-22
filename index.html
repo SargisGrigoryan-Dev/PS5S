@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PS5S – Experimental PS5 Emulator</title>
+<meta name="description" content="PS5S is an experimental PlayStation 5 emulator for Windows, built by reverse engineering. Made by Sargis Grigoryan.">
+<meta property="og:title" content="PS5S – Experimental PS5 Emulator">
+<meta property="og:description" content="Runs open-source PS5 homebrew on Windows: SNES emulator, Wolfenstein 3D, Jazz Jackrabbit. Made by Sargis Grigoryan.">
+<meta property="og:image" content="img/lakesnes_smashit_menu.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070a14;
+    --bg2: #0d1222;
+    --card: #121a2e;
+    --line: #22304f;
+    --text: #e8ecf7;
+    --muted: #93a0bd;
+    --accent: #3d7bff;
+    --accent2: #8b5cf6;
+    --ok: #34d399;
+    --warn: #fbbf24;
+    --no: #f87171;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  a { color: #8fb3ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code, .mono { font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; font-size: .9em; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px);
+    background: rgba(7,10,20,.78); border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; gap: 24px; height: 58px; }
+  nav .logo { font-weight: 800; letter-spacing: .04em; font-size: 20px; color: var(--text); }
+  nav .logo span { color: var(--accent); }
+  nav .links { display: flex; gap: 18px; margin-left: auto; flex-wrap: wrap; }
+  nav .links a { color: var(--muted); font-size: 14px; font-weight: 500; }
+  nav .links a:hover { color: var(--text); text-decoration: none; }
+
+  header.hero {
+    padding: 88px 0 64px; position: relative; overflow: hidden;
+    background:
+      radial-gradient(900px 400px at 15% -10%, rgba(61,123,255,.28), transparent 60%),
+      radial-gradient(700px 380px at 95% 10%, rgba(139,92,246,.22), transparent 60%);
+  }
+  .hero h1 { font-size: clamp(42px, 7vw, 76px); line-height: 1.02; margin: 0 0 14px; font-weight: 800; letter-spacing: -.02em; }
+  .hero h1 .grad { background: linear-gradient(90deg, #6aa0ff, #a78bfa); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { font-size: clamp(17px, 2.2vw, 21px); color: var(--muted); max-width: 720px; margin: 0 0 26px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+  .badge { border: 1px solid var(--line); background: var(--bg2); border-radius: 999px; padding: 6px 14px; font-size: 13px; color: var(--muted); }
+  .badge b { color: var(--text); }
+  .author { font-size: 15px; color: var(--muted); }
+  .author b { color: var(--text); }
+  .hero-shot { margin-top: 44px; border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.55); }
+  .hero-shot img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+  section h2 { font-size: 32px; margin: 0 0 8px; letter-spacing: -.01em; }
+  section .sub { color: var(--muted); margin: 0 0 32px; max-width: 760px; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  .stat .n { font-size: 34px; font-weight: 800; letter-spacing: -.02em; }
+  .stat .l { color: var(--muted); font-size: 14px; }
+
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+  figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  figure img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; cursor: zoom-in; image-rendering: pixelated; transition: transform .25s; }
+  figure:hover img { transform: scale(1.015); }
+  figcaption { padding: 14px 16px 16px; }
+  figcaption b { display: block; margin-bottom: 2px; }
+  figcaption span { color: var(--muted); font-size: 14px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; }
+  .tag.ok { background: rgba(52,211,153,.14); color: var(--ok); }
+  .tag.part { background: rgba(251,191,36,.14); color: var(--warn); }
+
+  .audio { margin-top: 22px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .audio audio { flex: 1; min-width: 260px; }
+  .audio p { margin: 0; color: var(--muted); font-size: 14px; max-width: 420px; }
+
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; background: var(--bg2); }
+  tr:last-child td { border-bottom: 0; }
+  .s-ok { color: var(--ok); font-weight: 600; white-space: nowrap; }
+  .s-part { color: var(--warn); font-weight: 600; white-space: nowrap; }
+  .s-no { color: var(--no); font-weight: 600; white-space: nowrap; }
+  .table-scroll { overflow-x: auto; border-radius: var(--radius); }
+
+  .arch { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .box { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  .box h3 { margin: 0 0 8px; font-size: 18px; }
+  .box p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .box .k { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
+
+  pre.term {
+    background: #05070e; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px;
+    overflow-x: auto; font: 13px/1.6 "JetBrains Mono", Consolas, monospace; color: #c7d2ec; margin: 0;
+  }
+  pre.term .g { color: var(--ok); } pre.term .d { color: #6b7a9c; } pre.term .y { color: #fcd34d; }
+
+  .logs { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-top: 22px; }
+  .logs a { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; color: var(--text); }
+  .logs a:hover { border-color: var(--accent); text-decoration: none; }
+  .logs a span { display: block; color: var(--muted); font-size: 13px; }
+
+  .note { background: linear-gradient(90deg, rgba(61,123,255,.12), rgba(139,92,246,.08)); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; color: var(--muted); }
+  .note b { color: var(--text); }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0 60px; color: var(--muted); font-size: 14px; }
+  footer .made { font-size: 16px; color: var(--text); margin-bottom: 10px; }
+
+  #lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.9); display: none; align-items: center; justify-content: center; z-index: 50; cursor: zoom-out; padding: 20px; }
+  #lightbox.open { display: flex; }
+  #lightbox img { max-width: 100%; max-height: 100%; image-rendering: pixelated; border-radius: 8px; }
+
+  @media (max-width: 640px) {
+    nav .links { display: none; }
+    header.hero { padding: 56px 0 40px; }
+    section { padding: 52px 0; }
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">PS5<span>S</span></a>
+    <div class="links">
+      <a href="#homebrew">Homebrew</a>
+      <a href="#tests">Tests</a>
+      <a href="#status">Status</a>
+      <a href="#how">How it works</a>
+      <a href="#logs">Logs</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>PS5S<br><span class="grad">Experimental PS5 Emulator</span></h1>
+    <p class="lead">A PlayStation&nbsp;5 emulator for Windows, built from scratch by reverse engineering. It already runs open-source PS5 homebrew with picture, sound and controller input.</p>
+    <div class="badges">
+      <span class="badge"><b>C++20</b> · Windows x64</span>
+      <span class="badge"><b>Vulkan</b> renderer</span>
+      <span class="badge"><b>RDNA2</b> shader translator</span>
+      <span class="badge"><b>467</b> system functions</span>
+      <span class="badge">No Sony code or keys</span>
+    </div>
+    <div class="author">Made by <b>Sargis Grigoryan</b></div>
+    <div class="hero-shot"><img src="img/lakesnes_smashit_menu.png" alt="LakeSnes running the homebrew game Smash It inside PS5S" data-zoom></div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="n">467</div><div class="l">HLE system functions in 12 libraries</div></div>
+      <div class="stat"><div class="n">1,312</div><div class="l">RDNA2 GPU instructions decoded</div></div>
+      <div class="stat"><div class="n">44,688</div><div class="l">System symbol names in the NID database</div></div>
+      <div class="stat"><div class="n">161/161</div><div class="l">GPU register checks match AMD's database</div></div>
+      <div class="stat"><div class="n">10/10</div><div class="l">Self-test suites passing</div></div>
+      <div class="stat"><div class="n">60 FPS</div><div class="l">Homebrew games, real-time audio</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="homebrew">
+  <div class="wrap">
+    <h2>Real PS5 homebrew, running</h2>
+    <p class="sub">These are unmodified release builds of open-source homebrew made for real PS5 consoles. PS5S loads them, links them against its own system libraries and runs them, with no console and no Sony software involved.</p>
+    <div class="gallery">
+      <figure>
+        <img src="img/lakesnes_smashit_menu.png" alt="Smash It intro art" loading="lazy" data-zoom>
+        <figcaption><span class="tag ok">Runs · 60 FPS · sound</span><b>LakeSnes: <i>Smash It</i></b><span>SNES emulator homebrew playing the homebrew game Smash It (elix 2014).</span></figcaption>
+      </figure>
+      <figure>
+        <img src="img/lakesnes_smashit.png" alt="Smash It ELIX logo" loading="lazy" data-zoom>
+        <figcaption><span class="tag ok">Runs · 60 FPS · sound</span><b>LakeSnes: boot screen</b><span>Drawn by the PS5 SDL port into the console's tiled framebuffer and de-tiled by PS5S.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="img/lakesnes_finalinsect.png" alt="The Final Insect planet scene" loading="lazy" data-zoom>
+        <figcaption><span class="tag ok">Runs · 60 FPS · sound</span><b>LakeSnes: <i>The Final Insect</i></b><span>Homebrew demo by Taurus (1993), with music playing through the PS5 audio API.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="img/wolf4sdl.png" alt="Wolfenstein 3D options menu" loading="lazy" data-zoom>
+        <figcaption><span class="tag ok">Runs · playable</span><b>Wolf4SDL: Wolfenstein 3D shareware</b><span>Menus, the built-in manual and gameplay, driven by the emulated controller.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="img/openjazz.png" alt="Jazz Jackrabbit title" loading="lazy" data-zoom>
+        <figcaption><span class="tag part">Runs · title and menus</span><b>OpenJazz: Jazz Jackrabbit shareware</b><span>Native 320×200 output, centred on the 1080p display as on the console.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="img/shell.png" alt="PS5S home screen" loading="lazy" data-zoom>
+        <figcaption><span class="tag ok">Runs</span><b>PS5S system shell</b><span>PS5S's own home screen, a guest program that boots first and can launch titles.</span></figcaption>
+      </figure>
+    </div>
+    <div class="audio">
+      <audio controls preload="none" src="img/final_insect_audio.wav"></audio>
+      <p><b>Listen:</b> 15 seconds of <i>The Final Insect</i>'s music, captured exactly as PS5S played it through its emulated audio output (48&nbsp;kHz stereo).</p>
+    </div>
+  </div>
+</section>
+
+<section id="tests">
+  <div class="wrap">
+    <h2>GPU and system self-tests</h2>
+    <p class="sub">Test programs run real AMD RDNA2 GPU machine code. PS5S translates it to Vulkan and checks the pixels against exact expected values.</p>
+    <div class="gallery">
+      <figure>
+        <img src="img/cube.png" alt="Rotating textured cube" loading="lazy" data-zoom>
+        <figcaption><span class="tag ok">All passed</span><b>3D cube</b><span>Perspective-correct texturing and point vs. bilinear filtering, at 60 FPS.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="img/rendertest.png" alt="Render feature test" loading="lazy" data-zoom>
+        <figcaption><span class="tag ok">15/15 checks</span><b>Render features</b><span>Depth testing, multiple render targets, texture formats and mipmap LOD selection.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="img/tiletest.png" alt="De-tiling test" loading="lazy" data-zoom>
+        <figcaption><span class="tag ok">15/15 checks</span><b>Swizzled memory</b><span>Tiled textures and render targets, de-tiled and re-tiled byte-exactly.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="img/branchtest.png" alt="Shader control flow test" loading="lazy" data-zoom>
+        <figcaption><span class="tag ok">All passed</span><b>Shader control flow</b><span>Divergent branches and per-pixel loops on the GPU.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="status">
+  <div class="wrap">
+    <h2>Honest status</h2>
+    <p class="sub">What PS5S can and cannot do today.</p>
+    <div class="table-scroll">
+      <table>
+        <tr><th>Software</th><th>Status</th><th>Notes</th></tr>
+        <tr><td>PS5S test programs and system shell</td><td class="s-ok">Runs</td><td>10 of 10 self-test suites pass</td></tr>
+        <tr><td>Open-source PS5 homebrew (SDL2)</td><td class="s-ok">Runs</td><td>LakeSnes, Wolf4SDL, OpenJazz: every system call they use is implemented</td></tr>
+        <tr><td>Other homebrew</td><td class="s-part">Partly</td><td>Missing functions are reported by name</td></tr>
+        <tr><td>Commercial PS5 games</td><td class="s-no">Not yet</td><td>Needs the PS5 graphics driver interface, compute shaders, ray tracing and many more system libraries</td></tr>
+      </table>
+    </div>
+    <br>
+    <div class="note"><b>Source code is not published yet.</b> This page shows results only. PS5S contains no Sony code, keys or firmware, does not decrypt anything, and loads only already-decrypted programs such as homebrew.</div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="sub">The PS5 has an x86-64 CPU, so program code runs natively. PS5S emulates everything around it.</p>
+    <div class="arch">
+      <div class="box"><div class="k">Loader</div><h3>ELF loader and linker</h3><p>Loads PS5 programs and system modules, resolves imports through hashed symbol IDs (NIDs), handles thread-local storage, and patches FS-segment accesses that Windows cannot run.</p></div>
+      <div class="box"><div class="k">OS</div><h3>HLE system libraries</h3><p>467 functions: kernel, threads, memory, files, POSIX, C library, audio, save data, video output, controller, user and system services.</p></div>
+      <div class="box"><div class="k">GPU</div><h3>Command processor</h3><p>Executes AMD PM4 command buffers on a GPU thread: register state, DMA, fences, interrupts and draws.</p></div>
+      <div class="box"><div class="k">Shaders</div><h3>RDNA2 → SPIR-V</h3><p>Decodes RDNA2 machine code (opcode tables recovered by probing a disassembler) and translates it, including branches, loops and EXEC masks, to Vulkan shaders.</p></div>
+      <div class="box"><div class="k">Memory</div><h3>De-tiling engine</h3><p>XOR address equations convert the GPU's swizzled memory layouts, including the PS5 display's tiled scan-out format, to and from linear.</p></div>
+      <div class="box"><div class="k">Verified</div><h3>Register checks</h3><p>Every GPU register, bit field, enum and texture format used is checked against AMD's published RDNA2 register database: 161 of 161 match.</p></div>
+    </div>
+    <br>
+    <pre class="term"><span class="d">&gt; ps5s.exe --arg "/app0/roms/Smash It (elix 2014).sfc" lakesnes.elf</span>
+[Boot     ] [1/5] HLE kernel online: 467 exports in 12 libraries
+[Loader   ] lakesnes.elf is a PS5 payload SDK program: PS5S links it and calls main() directly
+[Loader   ] Linked lakesnes.elf: <span class="g">228 imports (228 HLE, 0 LLE, 0 stubbed)</span>
+[VideoOut ] Registered 2 buffer(s) at index 0: 1920x1080 pitch 0 fmt 0x22000000 tiling 0
+[Audio    ] Opened port 1: 48000 Hz, 2048 samples/grain, 2 channel(s) s16
+[Guest    ] <span class="y">LakeSnes - Running with SDL 2.30.12</span>
+[Guest    ] <span class="y">Loaded LoROM rom (PAL)</span>
+[Guest    ] <span class="y">"ELIX 2014 - SMASH IT"</span></pre>
+  </div>
+</section>
+
+<section id="logs">
+  <div class="wrap">
+    <h2>Logs</h2>
+    <p class="sub">Unedited emulator output from the runs shown on this page (local folder paths shortened).</p>
+    <pre class="term"><span class="g">ALL TESTS PASSED</span>                 hello: linking, modules, thread-local storage
+<span class="g">ALL GPU TESTS PASSED</span>             gputest: PM4 command buffers, fences, interrupts
+<span class="g">ALL RENDER TESTS PASSED</span>          cube: translated RDNA2 shaders on Vulkan
+<span class="g">ALL CONTROL-FLOW TESTS PASSED</span>    branchtest: GPU branches and loops
+<span class="g">ALL RENDER FEATURE TESTS PASSED</span>  rendertest: depth, MRT, formats, mipmaps
+<span class="g">ALL DE-TILING TESTS PASSED</span>       tiletest: swizzled textures and targets
+<span class="g">ALL SWIZZLE TESTS PASSED</span>         tiling equation solver
+<span class="g">ALL LIBC/KERNEL TESTS PASSED</span>     libctest: printf ABI, qsort, events, file I/O
+<span class="g">ALL AUDIO TESTS PASSED</span>           audiotest: real-time audio output
+<span class="g">ALL SAVE DATA TESTS PASSED</span>       savetest: persistent save data
+<span class="g">161/161 checks match AMD's RDNA2 register database</span></pre>
+    <div class="logs">
+      <a href="logs/self-tests.txt">self-tests.txt<span>All 10 self-test suites, full output</span></a>
+      <a href="logs/verify_registers.txt">verify_registers.txt<span>161 GPU register / field / format checks</span></a>
+      <a href="logs/lakesnes.txt">lakesnes.txt<span>LakeSnes boot and run</span></a>
+      <a href="logs/wolf4sdl.txt">wolf4sdl.txt<span>Wolf4SDL boot and run</span></a>
+      <a href="logs/openjazz.txt">openjazz.txt<span>OpenJazz boot and run</span></a>
+      <a href="logs/import-coverage.txt">import-coverage.txt<span>Every system function each game imports</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="made">Made by <b>Sargis Grigoryan</b></div>
+    <div>Homebrew shown is open-source software by its respective authors (<a href="https://github.com/ps5-payload-dev">ps5-payload-dev</a> ports of LakeSnes, Wolf4SDL and OpenJazz; <i>Smash It</i> by elix, <i>The Final Insect</i> by Taurus; Wolfenstein 3D and Jazz Jackrabbit shareware data by their publishers).</div>
+    <div style="margin-top:8px">PS5S is an independent project, not affiliated with or endorsed by Sony Interactive Entertainment. "PlayStation" and "PS5" are trademarks of Sony Interactive Entertainment Inc.</div>
+  </div>
+</footer>
+
+<div id="lightbox"><img alt=""></div>
+<script>
+  const lb = document.getElementById('lightbox');
+  const lbImg = lb.querySelector('img');
+  document.querySelectorAll('[data-zoom]').forEach(img => img.addEventListener('click', () => {
+    lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open');
+  }));
+  lb.addEventListener('click', () => lb.classList.remove('open'));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+</script>
+</body>
+</html>

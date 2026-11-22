@@ -1,0 +1,769 @@
+[   0.0193] INFO  [Boot     ] NID database: 411 libraries, 47684 symbols (44691 named) +3 from extra_names.txt
+[   0.0197] WARN  [Boot     ] 2 HLE export(s) have NIDs not found in the database (see --list-hle)
+[   0.0214] INFO  [Loader   ] Mapped lakesnes.elf [ET_DYN] at 0000026eecea0000 (0x278000 bytes)
+[   0.0224] INFO  [Loader   ] lakesnes.elf: modules not found on disk (HLE/stubs used): libSceAudioOut.sprx, libSceKeyboard.sprx, libSceImeDialog.sprx, libSceLibcInternal.sprx, libSceNet.sprx
+[   0.0226] INFO  [Loader   ] lakesnes.elf is a PS5 payload SDK program: PS5S links it and calls main() directly
+[   0.0226] INFO  [Loader   ] Linked lakesnes.elf: 228 imports (228 HLE, 0 LLE, 0 stubbed), 0 exports
+
+Module      : lakesnes.elf
+Type        : ET_DYN (0x0003)
+Image size  : 0x278000
+Entry offset: 0x132434
+Needed      : libSceSystemService.sprx libSceUserService.sprx libScePad.sprx libSceAudioOut.sprx libSceVideoOut.sprx libSceKeyboard.sprx libSceImeDialog.sprx libkernel_sys.sprx libSceLibcInternal.sprx libSceNet.sprx
+Not on disk :  libSceAudioOut.sprx libSceKeyboard.sprx libSceImeDialog.sprx libSceLibcInternal.sprx libSceNet.sprx   (HLE/stubs used; add --system <dump>)
+Exports     : 0
+
+Imports:   (HLE = emulated, LLE = real module code, STUB = known but not implemented, ???? = unknown NID)
+  [HLE ] UteVS6B1ZrU dlopen                                       libkernel
+  [HLE ] biY+kcVB5D4 dlsym                                        libkernel
+  [HLE ] oiT0vgzmW0M dlclose                                      libkernel
+  [HLE ] ucFJiTO1EUw dlerror                                      libkernel
+  [HLE ] waIF+5fE5HQ symlink                                      libkernel
+  [HLE ] Vo5V8KAwCmk sceSystemServiceHideSplashScreen             libSceSystemService
+  [HLE ] -+3hY+y8bNo sceSystemServiceLaunchWebBrowser             libSceSystemService
+  [HLE ] JoBqSQt1yyA sceSystemServiceLoadExec                     libSceSystemService
+  [HLE ] eNb53LQJmIM sceUserServiceGetForegroundUser              libSceUserService
+  [HLE ] fPhymKNvK-A sceUserServiceGetLoginUserIdList             libSceUserService
+  [HLE ] j3YMu1MVNNo sceUserServiceInitialize                     libSceUserService
+  [HLE ] 1xxcMiGu2fo sceUserServiceGetUserName                    libSceUserService
+  [HLE ] u1GRHp+oWoY scePadGetHandle                              libScePad
+  [HLE ] xk0AcarP3V4 scePadOpen                                   libScePad
+  [HLE ] hv1luiJrqQM scePadInit                                   libScePad
+  [HLE ] 6ncge5+l5Qs scePadClose                                  libScePad
+  [HLE ] RR4novUEENY scePadSetLightBar                            libScePad
+  [HLE ] yFVnOdGxvZY scePadSetVibration                           libScePad
+  [HLE ] YndgXqQVV7c scePadReadState                              libScePad
+  [HLE ] W2G-yoyMF5U scePadSetVibrationMode                       libScePad
+  [HLE ] QOQtbeDqsT4 sceAudioOutOutput                            libSceAudioOut
+  [HLE ] ekNvsT22rsY sceAudioOutOpen                              libSceAudioOut
+  [HLE ] s1--uE9mBFw sceAudioOutClose                             libSceAudioOut
+  [HLE ] JfEPXVxhFqA sceAudioOutInit                              libSceAudioOut
+  [HLE ] HXzjK9yI30k sceVideoOutAddFlipEvent                      libSceVideoOut
+  [HLE ] rKBUtgRrtbk sceVideoOutRegisterBuffers2                  libSceVideoOut
+  [HLE ] -Ozn0F1AFRg sceVideoOutDeleteFlipEvent                   libSceVideoOut
+  [HLE ] U46NwOiJpys sceVideoOutSubmitFlip                        libSceVideoOut
+  [HLE ] uquVH4-Du78 sceVideoOutClose                             libSceVideoOut
+  [HLE ] PjS5uASwcV8 sceVideoOutSetBufferAttribute2               libSceVideoOut
+  [HLE ] CBiu4mCE1DA sceVideoOutSetFlipRate                       libSceVideoOut
+  [HLE ] Up36PTk687E sceVideoOutOpen                              libSceVideoOut
+  [HLE ] HJ+KnEHcaxI sceKeyboardOpen                              libSceKeyboard
+  [HLE ] 0LWei+c7RNc sceKeyboardClose                             libSceKeyboard
+  [HLE ] wadT3QBCGY0 sceKeyboardInit                              libSceKeyboard
+  [HLE ] 6HpE68bzX6M sceKeyboardReadState                         libSceKeyboard
+  [HLE ] IADmD4tScBY sceImeDialogGetStatus                        libSceImeDialog
+  [HLE ] NUeBrN7hzf0 sceImeDialogInit                             libSceImeDialog
+  [HLE ] x01jxu+vxlc sceImeDialogGetResult                        libSceImeDialog
+  [HLE ] gyTyVn+bXMw sceImeDialogTerm                             libSceImeDialog
+  [HLE ] E6ao34wPw+U stat                                         libkernel
+  [HLE ] FIs3-UQT9sg pthread_getschedparam                        libkernel
+  [HLE ] K-jXhbt2gn4 pthread_mutex_trylock                        libkernel
+  [HLE ] mqQMh1zPPT8 fstat                                        libkernel
+  [HLE ] 6BpEZuDT7YI pthread_key_delete                           libkernel
+  [HLE ] m0iS6jNsXds sched_get_priority_min                       libkernel
+  [HLE ] VADc3MNQ3cM signal                                       libkernel
+  [HLE ] 2MOy+rUfuhQ pthread_cond_signal                          libkernel
+  [HLE ] oxMp8uPqa+U pthread_set_name_np                          libkernel
+  [HLE ] D0OdFMjp46I sceKernelCreateEqueue                        libkernel
+  [HLE ] mqULNdimTn0 pthread_key_create                           libkernel
+  [HLE ] z0dtnPxYgtg chmod                                        libkernel
+  [HLE ] CBNtXOoef-E sched_get_priority_max                       libkernel
+  [HLE ] UqDGjXA5yUM munmap                                       libkernel
+  [HLE ] 7H0iTOciTLo pthread_mutex_lock                           libkernel
+  [HLE ] DFmMT80xcNI sysctl                                       libkernel
+  [HLE ] ltCfaGr2JGE pthread_mutex_destroy                        libkernel
+  [HLE ] EotR8a3ASf4 pthread_self                                 libkernel
+  [HLE ] wtkt-teR1so pthread_attr_init                            libkernel
+  [HLE ] h9CcP3J0oVM pthread_join                                 libkernel
+  [HLE ] B+vc2AO2Zrc sceKernelAllocateMainDirectMemory            libkernel
+  [HLE ] 2dEhvvjlq30 pthread_setcanceltype                        libkernel
+  [HLE ] 2Q0z6rnBrTE pthread_attr_setstacksize                    libkernel
+  [HLE ] yS8U2TGCe1A nanosleep                                    libkernel
+  [HLE ] IKP8typ0QUk sem_post                                     libkernel
+  [HLE ] Xs9hdiD7sAA pthread_setschedparam                        libkernel
+  [HLE ] 0-KXaS70xy4 pthread_getspecific                          libkernel
+  [HLE ] 2Z+PpY6CaJg pthread_mutex_unlock                         libkernel
+  [HLE ] ih4CD9-gghM ftruncate                                    libkernel
+  [HLE ] L-Q3LEjIbgA sceKernelMapDirectMemory                     libkernel
+  [HLE ] RXXqi4CtF8w pthread_cond_destroy                         libkernel
+  [HLE ] JZKw5+Wrnaw pthread_sigmask                              libkernel
+  [HLE ] E+tyo3lp5Lw pthread_attr_setdetachstate                  libkernel
+  [HLE ] jpFjmgAC5AE sceKernelDeleteEqueue                        libkernel
+  [HLE ] fzyMKs9kim0 sceKernelWaitEqueue                          libkernel
+  [HLE ] 0TyVk4MSLt0 pthread_cond_init                            libkernel
+  [HLE ] MhC53TKmjVA sysctlbyname                                 libkernel
+  [HLE ] Op8TBGY5KHg pthread_cond_wait                            libkernel
+  [HLE ] KiJEPEWRyUY sigaction                                    libkernel
+  [HLE ] 9BcDykPmo1I __error                                      libkernel
+  [HLE ] w5IHyvahg-o sem_timedwait                                libkernel
+  [HLE ] ttHNfU+qDBU pthread_mutex_init                           libkernel
+  [HLE ] cDW233RAwWo sem_destroy                                  libkernel
+  [HLE ] WrOLvHU0yQM pthread_setspecific                          libkernel
+  [HLE ] mDmgMOGVUqg pthread_mutexattr_settype                    libkernel
+  [HLE ] mkawd0NA9ts sysconf                                      libkernel
+  [HLE ] +U1R4WtXvoc pthread_detach                               libkernel
+  [HLE ] 27bAgiJmOh0 pthread_cond_timedwait                       libkernel
+  [HLE ] JUimFtKe0Kc sigaddset                                    libkernel
+  [HLE ] mkx2fVhNMsg pthread_cond_broadcast                       libkernel
+  [HLE ] n88vx3C5nW8 gettimeofday                                 libkernel
+  [HLE ] dQHWEsJtoE4 pthread_mutexattr_init                       libkernel
+  [HLE ] MBuItvba6z8 sceKernelReleaseDirectMemory                 libkernel
+  [HLE ] pDuPEf3m4fI sem_init                                     libkernel
+  [HLE ] WBWzsRifCEA sem_trywait                                  libkernel
+  [HLE ] YCV5dGGBcCo sem_wait                                     libkernel
+  [HLE ] OxhIB8LB-PQ pthread_create                               libkernel
+  [HLE ] +F7C-hdk7+E sigemptyset                                  libkernel
+  [HLE ] Bq+LRV-N6Hk sem_getvalue                                 libkernel
+  [HLE ] FJmglmTMdr4 getargv                                      libkernel
+  [HLE ] JGMio+21L4c mkdir                                        libkernel
+  [HLE ] gQX+4GDQjpM malloc                                       libc
+  [HLE ] tIhsqj0qsFE free                                         libc
+  [HLE ] 8zTFvBIAIN8 memset                                       libc
+  [HLE ] Q3VBxCXhUHs memcpy                                       libc
+  [HLE ] 2X5agFjKxMc calloc                                       libc
+  [HLE ] jMB7EFyu30Y sincos                                       libc
+  [HLE ] 7Ly52zaL44Q asin                                         libc
+  [HLE ] T7uyNqP7vQA tan                                          libc
+  [HLE ] hcuQgD53UxM printf                                       libc
+  [HLE ] Y7aJ1uydPMo realloc                                      libc
+  [HLE ] Ovb2dSJOAuE strcmp                                       libc
+  [HLE ] j4ViWNHEgww strlen                                       libc
+  [HLE ] uodLYyUip20 fclose                                       libc
+  [HLE ] xeYO4u7uyJ0 fopen                                        libc
+  [HLE ] rQFVBXp-Cxg fseek                                        libc
+  [HLE ] Qazy8LmXTvw ftell                                        libc
+  [HLE ] lbB+UlZqVG0 fread                                        libc
+  [HLE ] n7AepwR0s34 mktime                                       libc
+  [HLE ] DfivPArhucg memcmp                                       libc
+  [HLE ] 1nTKA7pN1jw utime                                        libSceLibcInternal
+  [HLE ] MpxhMh8QFro fwrite                                       libc
+  [HLE ] gkWgn0p1AfU freopen                                      libc
+  [HLE ] wLlFkwG9UcQ time                                         libc
+  [HLE ] efhK-YSUYYQ localtime                                    libc
+  [HLE ] MUjC4lbHrK4 fflush                                       libc
+  [HLE ] MZO7FXyAPU8 remove                                       libc
+  [HLE ] q1OvUam0BJU __isthreaded                                 libc
+  [HLE ] Fm-dmyywH9Q fileno                                       libc
+  [HLE ] kiZSXIWd9vg strcpy                                       libc
+  [HLE ] 6sJWiWSRuqk strncpy                                      libc
+  [HLE ] +P6FRGH4LfA memmove                                      libc
+  [HLE ] as8Od-tH1BI __stderrp                                    libSceLibcInternal
+  [HLE ] fffwELXNVFA fprintf                                      libc
+  [HLE ] L1SBTkC+Cvw abort                                        libc
+  [HLE ] tcVi5SivF7Q sprintf                                      libc
+  [HLE ] YQ0navp+YIc puts                                         libc
+  [HLE ] 9yDWMxEFdJU strrchr                                      libc
+  [HLE ] Ls4tzzhimqQ strcat                                       libc
+  [HLE ] kHg45qPC6f0 strncat                                      libc
+  [HLE ] 3QIPIh-GDjw rewind                                       libc
+  [HLE ] M4YYbSFfJ8g setenv                                       libSceLibcInternal
+  [HLE ] smbQukfxYJM getenv                                       libSceLibcInternal
+  [HLE ] WkkeywLJcgU wcslen                                       libc
+  [HLE ] WDpobjImAb4 wcsstr                                       libc
+  [HLE ] pNtJdE3x49E wcscmp                                       libc
+  [HLE ] E8wCoUEbfzk wcsncmp                                      libc
+  [HLE ] SfQIZcqvvms strlcpy                                      libc
+  [HLE ] ByfjUZsWiyg strlcat                                      libc
+  [HLE ] ob5xAW4ln-0 strchr                                       libc
+  [HLE ] viiwFMaNamA strstr                                       libc
+  [HLE ] fPxypibz2MY atoi                                         libc
+  [HLE ] SRI6S9B+-a4 atof                                         libc
+  [HLE ] mXlxhmLNMPg strtol                                       libc
+  [HLE ] QxmSHBCuKTk strtoul                                      libc
+  [HLE ] VOBg+iNwB-4 strtoll                                      libc
+  [HLE ] 5OqszGpy7Mg strtoull                                     libc
+  [HLE ] 2vDqwBlpF-o strtod                                       libc
+  [HLE ] aesyjrHVWy4 strncmp                                      libc
+  [HLE ] pXvbDfchu6k strncasecmp                                  libc
+  [HLE ] UTrpOVLcoOA vsscanf                                      libc
+  [HLE ] Q2V+iqvjgC0 vsnprintf                                    libc
+  [HLE ] OXmauLdQ8kY atan                                         libc
+  [HLE ] weDug8QD-lE atanf                                        libc
+  [HLE ] HUbZmOnT-Dg atan2                                        libc
+  [HLE ] EH-x713A99c atan2f                                       libc
+  [HLE ] JBcgYuW8lPU acos                                         libc
+  [HLE ] QI-x0SL8jhw acosf                                        libc
+  [HLE ] GZWjF-YIFFk asinf                                        libc
+  [HLE ] 2WE3BTYVwKM cos                                          libc
+  [HLE ] -P6FNMzk2Kc cosf                                         libc
+  [HLE ] NVadfnzQhHQ exp                                          libc
+  [HLE ] 8zsu04XNsZ4 expf                                         libc
+  [HLE ] pKwslsMUmSk fmod                                         libc
+  [HLE ] 88Vv-AzHVj8 fmodf                                        libc
+  [HLE ] rtV7-jWC6Yg log                                          libc
+  [HLE ] RQXLbdT2lc4 logf                                         libc
+  [HLE ] WuMbPBKN1TU log10                                        libc
+  [HLE ] lhpd6Wk6ccs log10f                                       libc
+  [HLE ] 9LCjpWyQ5Zc pow                                          libc
+  [HLE ] 1D0H2KNjshE powf                                         libc
+  [HLE ] J3XuGS-cC0Q lround                                       libc
+  [HLE ] C6gWCWJKM+U lroundf                                      libc
+  [HLE ] KGKBeVcqJjc scalbn                                       libc
+  [HLE ] 9fs1btfLoUs scalbnf                                      libc
+  [HLE ] H8ya2H00jbI sin                                          libc
+  [HLE ] Q4rRL34CEeE sinf                                         libc
+  [HLE ] ZE6RNL+eLbk tanf                                         libc
+  [HLE ] +xU0WKT8mDc isalpha                                      libc
+  [HLE ] 4uJJNi+C9wk isalnum                                      libc
+  [HLE ] srzSVSbKn7M isxdigit                                     libc
+  [HLE ] I6Z-684E2C4 ispunct                                      libc
+  [HLE ] wazw2x2m3DQ isspace                                      libc
+  [HLE ] GcFKlTJEMkI isupper                                      libc
+  [HLE ] KqYTqtSfGos islower                                      libc
+  [HLE ] eGkOpTojJl4 isprint                                      libc
+  [HLE ] rrgxakQtvc0 isgraph                                      libc
+  [HLE ] akpGErA1zdg iscntrl                                      libc
+  [HLE ] TYE4irxSmko toupper                                      libc
+  [HLE ] PqF+kHW-2WQ tolower                                      libc
+  [HLE ] lhnrCOBiTGo isblank                                      libc
+  [HLE ] wZi5ly2guNw _Exit                                        libc
+  [HLE ] RIa6GnWp+iU strerror                                     libc
+  [HLE ] pkYiKw09PRA fseeko                                       libc
+  [HLE ] 5qP1iVQkdck ftello                                       libc
+  [HLE ] AHxyhN96dy4 ferror                                       libc
+  [HLE ] v7S7LhP2OJc wcstombs                                     libc
+  [HLE ] AEJdIVZTEmo qsort                                        libc
+  [HLE ] NesIgTmfF0Q bsearch                                      libc
+  [HLE ] bgAcsbcEznc __stdinp                                     libSceLibcInternal
+  [HLE ] KdP-nULpuGw fgets                                        libc
+  [HLE ] DYivN1nO-JQ getcwd                                       libSceLibcInternal
+  [HLE ] g7zzzLDYGw0 strdup                                       libc
+  [HLE ] qVHpv0PxouI mbrtowc                                      libc
+  [HLE ] y9OoA+P5cjk wcrtomb                                      libc
+  [HLE ] qjBlw2cVMAM vasprintf                                    libc
+  [HLE ] 8hygs6D9KBY mbsrtowcs                                    libc
+  [HLE ] gjbmYpP-XJQ strcoll                                      libc
+  [HLE ] Av3zjWi64Kw strftime                                     libc
+  [HLE ] xENtRue8dpI strtof                                       libc
+  [HLE ] nW9JRkciRk4 strtold                                      libc
+  [HLE ] zogPrkd46DY strxfrm                                      libc
+  [HLE ] fV2xHER+bKE wcscoll                                      libc
+  [HLE ] VuMMb5CfpEw wcsxfrm                                      libc
+  [HLE ] j6OnScWpu7k mbrlen                                       libc
+  [HLE ] 6eU9xX9oEdQ mbtowc                                       libc
+  [HLE ] 77pL1FoD4I4 __mb_cur_max                                 libSceLibcInternal
+  [HLE ] enqPGLfmVNU strtok_r                                     libc
+
+Coverage by library:
+  libSceAudioOut                  4 / 4
+  libSceImeDialog                 4 / 4
+  libSceKeyboard                  4 / 4
+  libSceLibcInternal              7 / 7
+  libScePad                       8 / 8
+  libSceSystemService             3 / 3
+  libSceUserService               4 / 4
+  libSceVideoOut                  8 / 8
+  libc                          120 / 120
+  libkernel                      66 / 66
+
+Total: 228 of 228 imports bound to real code (HLE or LLE) (100.0%)
+[   0.0198] INFO  [Boot     ] NID database: 411 libraries, 47684 symbols (44691 named) +3 from extra_names.txt
+[   0.0202] WARN  [Boot     ] 2 HLE export(s) have NIDs not found in the database (see --list-hle)
+[   0.0226] INFO  [Loader   ] Mapped wolf3d-shareware.elf [ET_DYN] at 0000013852810000 (0x358000 bytes)
+[   0.0236] INFO  [Loader   ] wolf3d-shareware.elf: modules not found on disk (HLE/stubs used): libSceAudioOut.sprx, libSceKeyboard.sprx, libSceImeDialog.sprx, libSceLibcInternal.sprx, libSceNet.sprx
+[   0.0239] INFO  [Loader   ] wolf3d-shareware.elf is a PS5 payload SDK program: PS5S links it and calls main() directly
+[   0.0239] INFO  [Loader   ] Linked wolf3d-shareware.elf: 240 imports (240 HLE, 0 LLE, 0 stubbed), 0 exports
+
+Module      : wolf3d-shareware.elf
+Type        : ET_DYN (0x0003)
+Image size  : 0x358000
+Entry offset: 0x1b04bc
+Needed      : libSceSystemService.sprx libSceUserService.sprx libScePad.sprx libSceAudioOut.sprx libSceVideoOut.sprx libSceKeyboard.sprx libSceImeDialog.sprx libkernel_web.sprx libSceLibcInternal.sprx libSceNet.sprx
+Not on disk :  libSceAudioOut.sprx libSceKeyboard.sprx libSceImeDialog.sprx libSceLibcInternal.sprx libSceNet.sprx   (HLE/stubs used; add --system <dump>)
+Exports     : 0
+
+Imports:   (HLE = emulated, LLE = real module code, STUB = known but not implemented, ???? = unknown NID)
+  [HLE ] H8ya2H00jbI sin                                          libc
+  [HLE ] rtV7-jWC6Yg log                                          libc
+  [HLE ] 2X5agFjKxMc calloc                                       libc
+  [HLE ] dnaeGXbjP6E exp2                                         libc
+  [HLE ] tIhsqj0qsFE free                                         libc
+  [HLE ] Oy6IpwgtYOk lseek                                        libkernel
+  [HLE ] AqBioC2vF3I read                                         libkernel
+  [HLE ] wuCroIGjt2g open                                         libkernel
+  [HLE ] FN4gaPmuFV8 write                                        libkernel
+  [HLE ] bY-PO6JhzhQ close                                        libkernel
+  [HLE ] gQX+4GDQjpM malloc                                       libc
+  [HLE ] Ls4tzzhimqQ strcat                                       libc
+  [HLE ] j4ViWNHEgww strlen                                       libc
+  [HLE ] as8Od-tH1BI __stderrp                                    libSceLibcInternal
+  [HLE ] fffwELXNVFA fprintf                                      libc
+  [HLE ] L1SBTkC+Cvw abort                                        libc
+  [HLE ] oVkZ8W8-Q8A strtok                                       libc
+  [HLE ] tsvEmnenz48 __cxa_atexit                                 libc
+  [HLE ] 2Btkg8k24Zg aligned_alloc                                libc
+  [HLE ] Z4QosVuAsA0 pthread_once                                 libkernel
+  [HLE ] 0-KXaS70xy4 pthread_getspecific                          libkernel
+  [HLE ] WrOLvHU0yQM pthread_setspecific                          libkernel
+  [HLE ] mqULNdimTn0 pthread_key_create                           libkernel
+  [HLE ] 7H0iTOciTLo pthread_mutex_lock                           libkernel
+  [HLE ] 2Z+PpY6CaJg pthread_mutex_unlock                         libkernel
+  [HLE ] 8zTFvBIAIN8 memset                                       libc
+  [HLE ] MpxhMh8QFro fwrite                                       libc
+  [HLE ] pDBDcY6uLSA vfprintf                                     libc
+  [HLE ] aZK8lNei-Qw fputc                                        libc
+  [HLE ] MUjC4lbHrK4 fflush                                       libc
+  [HLE ] smbQukfxYJM getenv                                       libSceLibcInternal
+  [HLE ] sIlRvQqsN2Y pthread_rwlock_wrlock                        libkernel
+  [HLE ] EgmLo6EWgso pthread_rwlock_unlock                        libkernel
+  [HLE ] Q3VBxCXhUHs memcpy                                       libc
+  [HLE ] iGjsr1WAtI0 pthread_rwlock_rdlock                        libkernel
+  [HLE ] Ovb2dSJOAuE strcmp                                       libc
+  [HLE ] Y7aJ1uydPMo realloc                                      libc
+  [HLE ] QrZZdJ8XsX0 fputs                                        libc
+  [HLE ] +P6FRGH4LfA memmove                                      libc
+  [HLE ] 8u8lPzUEq+U memchr                                       libc
+  [HLE ] srzSVSbKn7M isxdigit                                     libc
+  [HLE ] eLdDw6l0-bU snprintf                                     libc
+  [HLE ] xeYO4u7uyJ0 fopen                                        libc
+  [HLE ] lbB+UlZqVG0 fread                                        libc
+  [HLE ] rQFVBXp-Cxg fseek                                        libc
+  [HLE ] Qazy8LmXTvw ftell                                        libc
+  [HLE ] uodLYyUip20 fclose                                       libc
+  [HLE ] hcuQgD53UxM printf                                       libc
+  [HLE ] YQ0navp+YIc puts                                         libc
+  [HLE ] g7zzzLDYGw0 strdup                                       libc
+  [HLE ] tcVi5SivF7Q sprintf                                      libc
+  [HLE ] Q2V+iqvjgC0 vsnprintf                                    libc
+  [HLE ] kiZSXIWd9vg strcpy                                       libc
+  [HLE ] eGkOpTojJl4 isprint                                      libc
+  [HLE ] uMei1W9uyNo exit                                         libc
+  [HLE ] EH-x713A99c atan2f                                       libc
+  [HLE ] fPxypibz2MY atoi                                         libc
+  [HLE ] T7uyNqP7vQA tan                                          libc
+  [HLE ] Q4rRL34CEeE sinf                                         libc
+  [HLE ] OXmauLdQ8kY atan                                         libc
+  [HLE ] jbz9I9vkqkk vsprintf                                     libc
+  [HLE ] m5wN+SwZOR4 putchar                                      libc
+  [HLE ] 8G2LB+A3rzg atexit                                       libc
+  [HLE ] VAzswvTOCzI unlink                                       libkernel
+  [HLE ] E6ao34wPw+U stat                                         libkernel
+  [HLE ] JGMio+21L4c mkdir                                        libkernel
+  [HLE ] TYE4irxSmko toupper                                      libc
+  [HLE ] wZi5ly2guNw _Exit                                        libc
+  [HLE ] mkawd0NA9ts sysconf                                      libkernel
+  [HLE ] MhC53TKmjVA sysctlbyname                                 libkernel
+  [HLE ] DFmMT80xcNI sysctl                                       libkernel
+  [HLE ] bgAcsbcEznc __stdinp                                     libSceLibcInternal
+  [HLE ] KdP-nULpuGw fgets                                        libc
+  [HLE ] KiJEPEWRyUY sigaction                                    libkernel
+  [HLE ] VADc3MNQ3cM signal                                       libkernel
+  [HLE ] q1OvUam0BJU __isthreaded                                 libc
+  [HLE ] Fm-dmyywH9Q fileno                                       libc
+  [HLE ] mqQMh1zPPT8 fstat                                        libkernel
+  [HLE ] 9BcDykPmo1I __error                                      libkernel
+  [HLE ] RIa6GnWp+iU strerror                                     libc
+  [HLE ] pkYiKw09PRA fseeko                                       libc
+  [HLE ] 5qP1iVQkdck ftello                                       libc
+  [HLE ] AHxyhN96dy4 ferror                                       libc
+  [HLE ] M4YYbSFfJ8g setenv                                       libSceLibcInternal
+  [HLE ] AEJdIVZTEmo qsort                                        libc
+  [HLE ] NesIgTmfF0Q bsearch                                      libc
+  [HLE ] weDug8QD-lE atanf                                        libc
+  [HLE ] HUbZmOnT-Dg atan2                                        libc
+  [HLE ] JBcgYuW8lPU acos                                         libc
+  [HLE ] QI-x0SL8jhw acosf                                        libc
+  [HLE ] 7Ly52zaL44Q asin                                         libc
+  [HLE ] GZWjF-YIFFk asinf                                        libc
+  [HLE ] 2WE3BTYVwKM cos                                          libc
+  [HLE ] -P6FNMzk2Kc cosf                                         libc
+  [HLE ] NVadfnzQhHQ exp                                          libc
+  [HLE ] 8zsu04XNsZ4 expf                                         libc
+  [HLE ] pKwslsMUmSk fmod                                         libc
+  [HLE ] 88Vv-AzHVj8 fmodf                                        libc
+  [HLE ] RQXLbdT2lc4 logf                                         libc
+  [HLE ] WuMbPBKN1TU log10                                        libc
+  [HLE ] lhpd6Wk6ccs log10f                                       libc
+  [HLE ] 9LCjpWyQ5Zc pow                                          libc
+  [HLE ] 1D0H2KNjshE powf                                         libc
+  [HLE ] J3XuGS-cC0Q lround                                       libc
+  [HLE ] C6gWCWJKM+U lroundf                                      libc
+  [HLE ] KGKBeVcqJjc scalbn                                       libc
+  [HLE ] 9fs1btfLoUs scalbnf                                      libc
+  [HLE ] ZE6RNL+eLbk tanf                                         libc
+  [HLE ] +xU0WKT8mDc isalpha                                      libc
+  [HLE ] 4uJJNi+C9wk isalnum                                      libc
+  [HLE ] I6Z-684E2C4 ispunct                                      libc
+  [HLE ] wazw2x2m3DQ isspace                                      libc
+  [HLE ] GcFKlTJEMkI isupper                                      libc
+  [HLE ] KqYTqtSfGos islower                                      libc
+  [HLE ] rrgxakQtvc0 isgraph                                      libc
+  [HLE ] akpGErA1zdg iscntrl                                      libc
+  [HLE ] PqF+kHW-2WQ tolower                                      libc
+  [HLE ] lhnrCOBiTGo isblank                                      libc
+  [HLE ] DfivPArhucg memcmp                                       libc
+  [HLE ] WkkeywLJcgU wcslen                                       libc
+  [HLE ] WDpobjImAb4 wcsstr                                       libc
+  [HLE ] pNtJdE3x49E wcscmp                                       libc
+  [HLE ] E8wCoUEbfzk wcsncmp                                      libc
+  [HLE ] SfQIZcqvvms strlcpy                                      libc
+  [HLE ] ByfjUZsWiyg strlcat                                      libc
+  [HLE ] ob5xAW4ln-0 strchr                                       libc
+  [HLE ] 9yDWMxEFdJU strrchr                                      libc
+  [HLE ] viiwFMaNamA strstr                                       libc
+  [HLE ] SRI6S9B+-a4 atof                                         libc
+  [HLE ] mXlxhmLNMPg strtol                                       libc
+  [HLE ] QxmSHBCuKTk strtoul                                      libc
+  [HLE ] VOBg+iNwB-4 strtoll                                      libc
+  [HLE ] 5OqszGpy7Mg strtoull                                     libc
+  [HLE ] 2vDqwBlpF-o strtod                                       libc
+  [HLE ] aesyjrHVWy4 strncmp                                      libc
+  [HLE ] pXvbDfchu6k strncasecmp                                  libc
+  [HLE ] UTrpOVLcoOA vsscanf                                      libc
+  [HLE ] enqPGLfmVNU strtok_r                                     libc
+  [HLE ] n88vx3C5nW8 gettimeofday                                 libkernel
+  [HLE ] yS8U2TGCe1A nanosleep                                    libkernel
+  [HLE ] FJmglmTMdr4 getargv                                      libkernel
+  [HLE ] DYivN1nO-JQ getcwd                                       libSceLibcInternal
+  [HLE ] j3YMu1MVNNo sceUserServiceInitialize                     libSceUserService
+  [HLE ] eNb53LQJmIM sceUserServiceGetForegroundUser              libSceUserService
+  [HLE ] hv1luiJrqQM scePadInit                                   libScePad
+  [HLE ] fPhymKNvK-A sceUserServiceGetLoginUserIdList             libSceUserService
+  [HLE ] 1xxcMiGu2fo sceUserServiceGetUserName                    libSceUserService
+  [HLE ] 6ncge5+l5Qs scePadClose                                  libScePad
+  [HLE ] xk0AcarP3V4 scePadOpen                                   libScePad
+  [HLE ] W2G-yoyMF5U scePadSetVibrationMode                       libScePad
+  [HLE ] yFVnOdGxvZY scePadSetVibration                           libScePad
+  [HLE ] RR4novUEENY scePadSetLightBar                            libScePad
+  [HLE ] YndgXqQVV7c scePadReadState                              libScePad
+  [HLE ] JfEPXVxhFqA sceAudioOutInit                              libSceAudioOut
+  [HLE ] ekNvsT22rsY sceAudioOutOpen                              libSceAudioOut
+  [HLE ] QOQtbeDqsT4 sceAudioOutOutput                            libSceAudioOut
+  [HLE ] s1--uE9mBFw sceAudioOutClose                             libSceAudioOut
+  [HLE ] -Ozn0F1AFRg sceVideoOutDeleteFlipEvent                   libSceVideoOut
+  [HLE ] jpFjmgAC5AE sceKernelDeleteEqueue                        libkernel
+  [HLE ] uquVH4-Du78 sceVideoOutClose                             libSceVideoOut
+  [HLE ] UqDGjXA5yUM munmap                                       libkernel
+  [HLE ] MBuItvba6z8 sceKernelReleaseDirectMemory                 libkernel
+  [HLE ] Vo5V8KAwCmk sceSystemServiceHideSplashScreen             libSceSystemService
+  [HLE ] U46NwOiJpys sceVideoOutSubmitFlip                        libSceVideoOut
+  [HLE ] fzyMKs9kim0 sceKernelWaitEqueue                          libkernel
+  [HLE ] Up36PTk687E sceVideoOutOpen                              libSceVideoOut
+  [HLE ] D0OdFMjp46I sceKernelCreateEqueue                        libkernel
+  [HLE ] HXzjK9yI30k sceVideoOutAddFlipEvent                      libSceVideoOut
+  [HLE ] CBiu4mCE1DA sceVideoOutSetFlipRate                       libSceVideoOut
+  [HLE ] PjS5uASwcV8 sceVideoOutSetBufferAttribute2               libSceVideoOut
+  [HLE ] rKBUtgRrtbk sceVideoOutRegisterBuffers2                  libSceVideoOut
+  [HLE ] B+vc2AO2Zrc sceKernelAllocateMainDirectMemory            libkernel
+  [HLE ] L-Q3LEjIbgA sceKernelMapDirectMemory                     libkernel
+  [HLE ] u1GRHp+oWoY scePadGetHandle                              libScePad
+  [HLE ] HJ+KnEHcaxI sceKeyboardOpen                              libSceKeyboard
+  [HLE ] 0LWei+c7RNc sceKeyboardClose                             libSceKeyboard
+  [HLE ] wadT3QBCGY0 sceKeyboardInit                              libSceKeyboard
+  [HLE ] IADmD4tScBY sceImeDialogGetStatus                        libSceImeDialog
+  [HLE ] x01jxu+vxlc sceImeDialogGetResult                        libSceImeDialog
+  [HLE ] v7S7LhP2OJc wcstombs                                     libc
+  [HLE ] gyTyVn+bXMw sceImeDialogTerm                             libSceImeDialog
+  [HLE ] 6HpE68bzX6M sceKeyboardReadState                         libSceKeyboard
+  [HLE ] NUeBrN7hzf0 sceImeDialogInit                             libSceImeDialog
+  [HLE ] -+3hY+y8bNo sceSystemServiceLaunchWebBrowser             libSceSystemService
+  [HLE ] wtkt-teR1so pthread_attr_init                            libkernel
+  [HLE ] E+tyo3lp5Lw pthread_attr_setdetachstate                  libkernel
+  [HLE ] 2Q0z6rnBrTE pthread_attr_setstacksize                    libkernel
+  [HLE ] OxhIB8LB-PQ pthread_create                               libkernel
+  [HLE ] EotR8a3ASf4 pthread_self                                 libkernel
+  [HLE ] oxMp8uPqa+U pthread_set_name_np                          libkernel
+  [HLE ] +F7C-hdk7+E sigemptyset                                  libkernel
+  [HLE ] JUimFtKe0Kc sigaddset                                    libkernel
+  [HLE ] JZKw5+Wrnaw pthread_sigmask                              libkernel
+  [HLE ] 2dEhvvjlq30 pthread_setcanceltype                        libkernel
+  [HLE ] FIs3-UQT9sg pthread_getschedparam                        libkernel
+  [HLE ] m0iS6jNsXds sched_get_priority_min                       libkernel
+  [HLE ] CBNtXOoef-E sched_get_priority_max                       libkernel
+  [HLE ] Xs9hdiD7sAA pthread_setschedparam                        libkernel
+  [HLE ] h9CcP3J0oVM pthread_join                                 libkernel
+  [HLE ] +U1R4WtXvoc pthread_detach                               libkernel
+  [HLE ] dQHWEsJtoE4 pthread_mutexattr_init                       libkernel
+  [HLE ] mDmgMOGVUqg pthread_mutexattr_settype                    libkernel
+  [HLE ] ttHNfU+qDBU pthread_mutex_init                           libkernel
+  [HLE ] ltCfaGr2JGE pthread_mutex_destroy                        libkernel
+  [HLE ] K-jXhbt2gn4 pthread_mutex_trylock                        libkernel
+  [HLE ] 0TyVk4MSLt0 pthread_cond_init                            libkernel
+  [HLE ] RXXqi4CtF8w pthread_cond_destroy                         libkernel
+  [HLE ] 2MOy+rUfuhQ pthread_cond_signal                          libkernel
+  [HLE ] mkx2fVhNMsg pthread_cond_broadcast                       libkernel
+  [HLE ] 27bAgiJmOh0 pthread_cond_timedwait                       libkernel
+  [HLE ] Op8TBGY5KHg pthread_cond_wait                            libkernel
+  [HLE ] 6BpEZuDT7YI pthread_key_delete                           libkernel
+  [HLE ] pDuPEf3m4fI sem_init                                     libkernel
+  [HLE ] cDW233RAwWo sem_destroy                                  libkernel
+  [HLE ] WBWzsRifCEA sem_trywait                                  libkernel
+  [HLE ] YCV5dGGBcCo sem_wait                                     libkernel
+  [HLE ] w5IHyvahg-o sem_timedwait                                libkernel
+  [HLE ] Bq+LRV-N6Hk sem_getvalue                                 libkernel
+  [HLE ] IKP8typ0QUk sem_post                                     libkernel
+  [HLE ] qVHpv0PxouI mbrtowc                                      libc
+  [HLE ] y9OoA+P5cjk wcrtomb                                      libc
+  [HLE ] qjBlw2cVMAM vasprintf                                    libc
+  [HLE ] 8hygs6D9KBY mbsrtowcs                                    libc
+  [HLE ] gjbmYpP-XJQ strcoll                                      libc
+  [HLE ] Av3zjWi64Kw strftime                                     libc
+  [HLE ] xENtRue8dpI strtof                                       libc
+  [HLE ] nW9JRkciRk4 strtold                                      libc
+  [HLE ] zogPrkd46DY strxfrm                                      libc
+  [HLE ] fV2xHER+bKE wcscoll                                      libc
+  [HLE ] VuMMb5CfpEw wcsxfrm                                      libc
+  [HLE ] j6OnScWpu7k mbrlen                                       libc
+  [HLE ] 6eU9xX9oEdQ mbtowc                                       libc
+  [HLE ] 77pL1FoD4I4 __mb_cur_max                                 libSceLibcInternal
+  [HLE ] aPcyptbOiZs sigprocmask                                  libkernel
+  [HLE ] 0NJDcQ2B8vE execvp                                       libkernel
+  [HLE ] EMutwaQ34Jo perror                                       libc
+  [HLE ] 6Z83sYWFlA8 _exit                                        libkernel
+  [HLE ] dTnYqqLIQ6c waitpid                                      libkernel
+  [HLE ] W0xkN0+ZkCE kill                                         libkernel
+  [HLE ] 0wu33hunNdE sleep                                        libkernel
+
+Coverage by library:
+  libSceAudioOut                  4 / 4
+  libSceImeDialog                 4 / 4
+  libSceKeyboard                  4 / 4
+  libSceLibcInternal              6 / 6
+  libScePad                       8 / 8
+  libSceSystemService             2 / 2
+  libSceUserService               4 / 4
+  libSceVideoOut                  8 / 8
+  libc                          125 / 125
+  libkernel                      75 / 75
+
+Total: 240 of 240 imports bound to real code (HLE or LLE) (100.0%)
+[   0.0189] INFO  [Boot     ] NID database: 411 libraries, 47684 symbols (44691 named) +3 from extra_names.txt
+[   0.0193] WARN  [Boot     ] 2 HLE export(s) have NIDs not found in the database (see --list-hle)
+[   0.0212] INFO  [Loader   ] Mapped openjazz.elf [ET_DYN] at 0000028a68d40000 (0x374000 bytes)
+[   0.0222] INFO  [Loader   ] openjazz.elf: modules not found on disk (HLE/stubs used): libSceAudioOut.sprx, libSceKeyboard.sprx, libSceImeDialog.sprx, libSceLibcInternal.sprx, libSceNet.sprx
+[   0.0224] INFO  [Loader   ] openjazz.elf is a PS5 payload SDK program: PS5S links it and calls main() directly
+[   0.0224] INFO  [Loader   ] Linked openjazz.elf: 211 imports (211 HLE, 0 LLE, 0 stubbed), 0 exports
+
+Module      : openjazz.elf
+Type        : ET_DYN (0x0003)
+Image size  : 0x374000
+Entry offset: 0x1859f0
+Needed      : libSceSystemService.sprx libSceUserService.sprx libScePad.sprx libSceAudioOut.sprx libSceVideoOut.sprx libSceKeyboard.sprx libSceImeDialog.sprx libkernel_web.sprx libSceLibcInternal.sprx libSceNet.sprx
+Not on disk :  libSceAudioOut.sprx libSceKeyboard.sprx libSceImeDialog.sprx libSceLibcInternal.sprx libSceNet.sprx   (HLE/stubs used; add --system <dump>)
+Exports     : 0
+
+Imports:   (HLE = emulated, LLE = real module code, STUB = known but not implemented, ???? = unknown NID)
+  [HLE ] hcuQgD53UxM printf                                       libc
+  [HLE ] j4ViWNHEgww strlen                                       libc
+  [HLE ] Q3VBxCXhUHs memcpy                                       libc
+  [HLE ] 8zTFvBIAIN8 memset                                       libc
+  [HLE ] 2Btkg8k24Zg aligned_alloc                                libc
+  [HLE ] 7H0iTOciTLo pthread_mutex_lock                           libkernel
+  [HLE ] 2Z+PpY6CaJg pthread_mutex_unlock                         libkernel
+  [HLE ] 2X5agFjKxMc calloc                                       libc
+  [HLE ] tIhsqj0qsFE free                                         libc
+  [HLE ] as8Od-tH1BI __stderrp                                    libSceLibcInternal
+  [HLE ] MpxhMh8QFro fwrite                                       libc
+  [HLE ] pDBDcY6uLSA vfprintf                                     libc
+  [HLE ] aZK8lNei-Qw fputc                                        libc
+  [HLE ] L1SBTkC+Cvw abort                                        libc
+  [HLE ] fffwELXNVFA fprintf                                      libc
+  [HLE ] MUjC4lbHrK4 fflush                                       libc
+  [HLE ] smbQukfxYJM getenv                                       libSceLibcInternal
+  [HLE ] sIlRvQqsN2Y pthread_rwlock_wrlock                        libkernel
+  [HLE ] EgmLo6EWgso pthread_rwlock_unlock                        libkernel
+  [HLE ] gQX+4GDQjpM malloc                                       libc
+  [HLE ] iGjsr1WAtI0 pthread_rwlock_rdlock                        libkernel
+  [HLE ] Z4QosVuAsA0 pthread_once                                 libkernel
+  [HLE ] 0-KXaS70xy4 pthread_getspecific                          libkernel
+  [HLE ] WrOLvHU0yQM pthread_setspecific                          libkernel
+  [HLE ] mqULNdimTn0 pthread_key_create                           libkernel
+  [HLE ] Y7aJ1uydPMo realloc                                      libc
+  [HLE ] QrZZdJ8XsX0 fputs                                        libc
+  [HLE ] +P6FRGH4LfA memmove                                      libc
+  [HLE ] 8u8lPzUEq+U memchr                                       libc
+  [HLE ] srzSVSbKn7M isxdigit                                     libc
+  [HLE ] eLdDw6l0-bU snprintf                                     libc
+  [HLE ] Ovb2dSJOAuE strcmp                                       libc
+  [HLE ] xeYO4u7uyJ0 fopen                                        libc
+  [HLE ] uodLYyUip20 fclose                                       libc
+  [HLE ] Qazy8LmXTvw ftell                                        libc
+  [HLE ] rQFVBXp-Cxg fseek                                        libc
+  [HLE ] AEuF3F2f8TA fgetc                                        libc
+  [HLE ] lbB+UlZqVG0 fread                                        libc
+  [HLE ] 8vE6Z6VEYyk access                                       libkernel
+  [HLE ] DYivN1nO-JQ getcwd                                       libSceLibcInternal
+  [HLE ] aesyjrHVWy4 strncmp                                      libc
+  [HLE ] Ls4tzzhimqQ strcat                                       libc
+  [HLE ] 9yDWMxEFdJU strrchr                                      libc
+  [HLE ] wLlFkwG9UcQ time                                         libc
+  [HLE ] efhK-YSUYYQ localtime                                    libc
+  [HLE ] zqJhBxAKfsc __stdoutp                                    libSceLibcInternal
+  [HLE ] Av3zjWi64Kw strftime                                     libc
+  [HLE ] TU-d9PfIHPM socket                                       libkernel
+  [HLE ] PfccT7qURYE ioctl                                        libkernel
+  [HLE ] KuOmgKoqCdY bind                                         libkernel
+  [HLE ] bY-PO6JhzhQ close                                        libkernel
+  [HLE ] pxnCmagrtao listen                                       libkernel
+  [HLE ] a7ToDPsIQrc __inet_aton                                  libSceLibcInternal
+  [HLE ] XVL8So3QJUk connect                                      libkernel
+  [HLE ] T8fER+tIGgk select                                       libkernel
+  [HLE ] 9BcDykPmo1I __error                                      libkernel
+  [HLE ] 3e+4Iv7IJ8U accept                                       libkernel
+  [HLE ] fZOeZIOEmLw send                                         libkernel
+  [HLE ] Ez8xjo9UF4E recv                                         libkernel
+  [HLE ] uMei1W9uyNo exit                                         libc
+  [HLE ] tsvEmnenz48 __cxa_atexit                                 libc
+  [HLE ] kiZSXIWd9vg strcpy                                       libc
+  [HLE ] eGkOpTojJl4 isprint                                      libc
+  [HLE ] JGMio+21L4c mkdir                                        libkernel
+  [HLE ] mXlxhmLNMPg strtol                                       libc
+  [HLE ] cpCOXWMgha0 rand                                         libc
+  [HLE ] tcVi5SivF7Q sprintf                                      libc
+  [HLE ] 6sJWiWSRuqk strncpy                                      libc
+  [HLE ] AEJdIVZTEmo qsort                                        libc
+  [HLE ] wZi5ly2guNw _Exit                                        libc
+  [HLE ] mkawd0NA9ts sysconf                                      libkernel
+  [HLE ] MhC53TKmjVA sysctlbyname                                 libkernel
+  [HLE ] DFmMT80xcNI sysctl                                       libkernel
+  [HLE ] bgAcsbcEznc __stdinp                                     libSceLibcInternal
+  [HLE ] KdP-nULpuGw fgets                                        libc
+  [HLE ] KiJEPEWRyUY sigaction                                    libkernel
+  [HLE ] VADc3MNQ3cM signal                                       libkernel
+  [HLE ] q1OvUam0BJU __isthreaded                                 libc
+  [HLE ] Fm-dmyywH9Q fileno                                       libc
+  [HLE ] mqQMh1zPPT8 fstat                                        libkernel
+  [HLE ] RIa6GnWp+iU strerror                                     libc
+  [HLE ] pkYiKw09PRA fseeko                                       libc
+  [HLE ] 5qP1iVQkdck ftello                                       libc
+  [HLE ] AHxyhN96dy4 ferror                                       libc
+  [HLE ] E6ao34wPw+U stat                                         libkernel
+  [HLE ] M4YYbSFfJ8g setenv                                       libSceLibcInternal
+  [HLE ] NesIgTmfF0Q bsearch                                      libc
+  [HLE ] +xU0WKT8mDc isalpha                                      libc
+  [HLE ] 4uJJNi+C9wk isalnum                                      libc
+  [HLE ] I6Z-684E2C4 ispunct                                      libc
+  [HLE ] wazw2x2m3DQ isspace                                      libc
+  [HLE ] GcFKlTJEMkI isupper                                      libc
+  [HLE ] KqYTqtSfGos islower                                      libc
+  [HLE ] rrgxakQtvc0 isgraph                                      libc
+  [HLE ] akpGErA1zdg iscntrl                                      libc
+  [HLE ] TYE4irxSmko toupper                                      libc
+  [HLE ] PqF+kHW-2WQ tolower                                      libc
+  [HLE ] lhnrCOBiTGo isblank                                      libc
+  [HLE ] DfivPArhucg memcmp                                       libc
+  [HLE ] WkkeywLJcgU wcslen                                       libc
+  [HLE ] WDpobjImAb4 wcsstr                                       libc
+  [HLE ] pNtJdE3x49E wcscmp                                       libc
+  [HLE ] E8wCoUEbfzk wcsncmp                                      libc
+  [HLE ] SfQIZcqvvms strlcpy                                      libc
+  [HLE ] ByfjUZsWiyg strlcat                                      libc
+  [HLE ] ob5xAW4ln-0 strchr                                       libc
+  [HLE ] viiwFMaNamA strstr                                       libc
+  [HLE ] fPxypibz2MY atoi                                         libc
+  [HLE ] SRI6S9B+-a4 atof                                         libc
+  [HLE ] QxmSHBCuKTk strtoul                                      libc
+  [HLE ] VOBg+iNwB-4 strtoll                                      libc
+  [HLE ] 5OqszGpy7Mg strtoull                                     libc
+  [HLE ] 2vDqwBlpF-o strtod                                       libc
+  [HLE ] pXvbDfchu6k strncasecmp                                  libc
+  [HLE ] UTrpOVLcoOA vsscanf                                      libc
+  [HLE ] Q2V+iqvjgC0 vsnprintf                                    libc
+  [HLE ] enqPGLfmVNU strtok_r                                     libc
+  [HLE ] n88vx3C5nW8 gettimeofday                                 libkernel
+  [HLE ] yS8U2TGCe1A nanosleep                                    libkernel
+  [HLE ] FJmglmTMdr4 getargv                                      libkernel
+  [HLE ] g7zzzLDYGw0 strdup                                       libc
+  [HLE ] j3YMu1MVNNo sceUserServiceInitialize                     libSceUserService
+  [HLE ] eNb53LQJmIM sceUserServiceGetForegroundUser              libSceUserService
+  [HLE ] hv1luiJrqQM scePadInit                                   libScePad
+  [HLE ] fPhymKNvK-A sceUserServiceGetLoginUserIdList             libSceUserService
+  [HLE ] 1xxcMiGu2fo sceUserServiceGetUserName                    libSceUserService
+  [HLE ] 6ncge5+l5Qs scePadClose                                  libScePad
+  [HLE ] xk0AcarP3V4 scePadOpen                                   libScePad
+  [HLE ] W2G-yoyMF5U scePadSetVibrationMode                       libScePad
+  [HLE ] yFVnOdGxvZY scePadSetVibration                           libScePad
+  [HLE ] RR4novUEENY scePadSetLightBar                            libScePad
+  [HLE ] YndgXqQVV7c scePadReadState                              libScePad
+  [HLE ] JfEPXVxhFqA sceAudioOutInit                              libSceAudioOut
+  [HLE ] ekNvsT22rsY sceAudioOutOpen                              libSceAudioOut
+  [HLE ] QOQtbeDqsT4 sceAudioOutOutput                            libSceAudioOut
+  [HLE ] s1--uE9mBFw sceAudioOutClose                             libSceAudioOut
+  [HLE ] -Ozn0F1AFRg sceVideoOutDeleteFlipEvent                   libSceVideoOut
+  [HLE ] jpFjmgAC5AE sceKernelDeleteEqueue                        libkernel
+  [HLE ] uquVH4-Du78 sceVideoOutClose                             libSceVideoOut
+  [HLE ] UqDGjXA5yUM munmap                                       libkernel
+  [HLE ] MBuItvba6z8 sceKernelReleaseDirectMemory                 libkernel
+  [HLE ] Vo5V8KAwCmk sceSystemServiceHideSplashScreen             libSceSystemService
+  [HLE ] U46NwOiJpys sceVideoOutSubmitFlip                        libSceVideoOut
+  [HLE ] fzyMKs9kim0 sceKernelWaitEqueue                          libkernel
+  [HLE ] Up36PTk687E sceVideoOutOpen                              libSceVideoOut
+  [HLE ] D0OdFMjp46I sceKernelCreateEqueue                        libkernel
+  [HLE ] HXzjK9yI30k sceVideoOutAddFlipEvent                      libSceVideoOut
+  [HLE ] CBiu4mCE1DA sceVideoOutSetFlipRate                       libSceVideoOut
+  [HLE ] PjS5uASwcV8 sceVideoOutSetBufferAttribute2               libSceVideoOut
+  [HLE ] rKBUtgRrtbk sceVideoOutRegisterBuffers2                  libSceVideoOut
+  [HLE ] B+vc2AO2Zrc sceKernelAllocateMainDirectMemory            libkernel
+  [HLE ] L-Q3LEjIbgA sceKernelMapDirectMemory                     libkernel
+  [HLE ] u1GRHp+oWoY scePadGetHandle                              libScePad
+  [HLE ] HJ+KnEHcaxI sceKeyboardOpen                              libSceKeyboard
+  [HLE ] 0LWei+c7RNc sceKeyboardClose                             libSceKeyboard
+  [HLE ] wadT3QBCGY0 sceKeyboardInit                              libSceKeyboard
+  [HLE ] IADmD4tScBY sceImeDialogGetStatus                        libSceImeDialog
+  [HLE ] x01jxu+vxlc sceImeDialogGetResult                        libSceImeDialog
+  [HLE ] v7S7LhP2OJc wcstombs                                     libc
+  [HLE ] gyTyVn+bXMw sceImeDialogTerm                             libSceImeDialog
+  [HLE ] 6HpE68bzX6M sceKeyboardReadState                         libSceKeyboard
+  [HLE ] NUeBrN7hzf0 sceImeDialogInit                             libSceImeDialog
+  [HLE ] -+3hY+y8bNo sceSystemServiceLaunchWebBrowser             libSceSystemService
+  [HLE ] wtkt-teR1so pthread_attr_init                            libkernel
+  [HLE ] E+tyo3lp5Lw pthread_attr_setdetachstate                  libkernel
+  [HLE ] 2Q0z6rnBrTE pthread_attr_setstacksize                    libkernel
+  [HLE ] OxhIB8LB-PQ pthread_create                               libkernel
+  [HLE ] EotR8a3ASf4 pthread_self                                 libkernel
+  [HLE ] oxMp8uPqa+U pthread_set_name_np                          libkernel
+  [HLE ] +F7C-hdk7+E sigemptyset                                  libkernel
+  [HLE ] JUimFtKe0Kc sigaddset                                    libkernel
+  [HLE ] JZKw5+Wrnaw pthread_sigmask                              libkernel
+  [HLE ] 2dEhvvjlq30 pthread_setcanceltype                        libkernel
+  [HLE ] FIs3-UQT9sg pthread_getschedparam                        libkernel
+  [HLE ] m0iS6jNsXds sched_get_priority_min                       libkernel
+  [HLE ] CBNtXOoef-E sched_get_priority_max                       libkernel
+  [HLE ] Xs9hdiD7sAA pthread_setschedparam                        libkernel
+  [HLE ] h9CcP3J0oVM pthread_join                                 libkernel
+  [HLE ] +U1R4WtXvoc pthread_detach                               libkernel
+  [HLE ] dQHWEsJtoE4 pthread_mutexattr_init                       libkernel
+  [HLE ] mDmgMOGVUqg pthread_mutexattr_settype                    libkernel
+  [HLE ] ttHNfU+qDBU pthread_mutex_init                           libkernel
+  [HLE ] ltCfaGr2JGE pthread_mutex_destroy                        libkernel
+  [HLE ] K-jXhbt2gn4 pthread_mutex_trylock                        libkernel
+  [HLE ] 0TyVk4MSLt0 pthread_cond_init                            libkernel
+  [HLE ] RXXqi4CtF8w pthread_cond_destroy                         libkernel
+  [HLE ] 2MOy+rUfuhQ pthread_cond_signal                          libkernel
+  [HLE ] mkx2fVhNMsg pthread_cond_broadcast                       libkernel
+  [HLE ] 27bAgiJmOh0 pthread_cond_timedwait                       libkernel
+  [HLE ] Op8TBGY5KHg pthread_cond_wait                            libkernel
+  [HLE ] 6BpEZuDT7YI pthread_key_delete                           libkernel
+  [HLE ] pDuPEf3m4fI sem_init                                     libkernel
+  [HLE ] cDW233RAwWo sem_destroy                                  libkernel
+  [HLE ] WBWzsRifCEA sem_trywait                                  libkernel
+  [HLE ] YCV5dGGBcCo sem_wait                                     libkernel
+  [HLE ] w5IHyvahg-o sem_timedwait                                libkernel
+  [HLE ] Bq+LRV-N6Hk sem_getvalue                                 libkernel
+  [HLE ] IKP8typ0QUk sem_post                                     libkernel
+  [HLE ] qVHpv0PxouI mbrtowc                                      libc
+  [HLE ] y9OoA+P5cjk wcrtomb                                      libc
+  [HLE ] qjBlw2cVMAM vasprintf                                    libc
+  [HLE ] 8hygs6D9KBY mbsrtowcs                                    libc
+  [HLE ] gjbmYpP-XJQ strcoll                                      libc
+  [HLE ] xENtRue8dpI strtof                                       libc
+  [HLE ] nW9JRkciRk4 strtold                                      libc
+  [HLE ] zogPrkd46DY strxfrm                                      libc
+  [HLE ] fV2xHER+bKE wcscoll                                      libc
+  [HLE ] VuMMb5CfpEw wcsxfrm                                      libc
+  [HLE ] j6OnScWpu7k mbrlen                                       libc
+  [HLE ] 6eU9xX9oEdQ mbtowc                                       libc
+  [HLE ] 77pL1FoD4I4 __mb_cur_max                                 libSceLibcInternal
+
+Coverage by library:
+  libSceAudioOut                  4 / 4
+  libSceImeDialog                 4 / 4
+  libSceKeyboard                  4 / 4
+  libSceLibcInternal              8 / 8
+  libScePad                       8 / 8
+  libSceSystemService             2 / 2
+  libSceUserService               4 / 4
+  libSceVideoOut                  8 / 8
+  libc                           95 / 95
+  libkernel                      74 / 74
+
+Total: 211 of 211 imports bound to real code (HLE or LLE) (100.0%)

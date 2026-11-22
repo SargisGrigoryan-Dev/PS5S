@@ -1,0 +1,30 @@
+[   0.0193] INFO  [Boot     ] NID database: 411 libraries, 47684 symbols (44691 named) +3 from extra_names.txt
+[   0.0197] WARN  [Boot     ] 2 HLE export(s) have NIDs not found in the database (see --list-hle)
+[   0.0197] INFO  [Boot     ] ==============================================
+[   0.0197] INFO  [Boot     ]  PS5S experimental HLE emulator
+[   0.0197] INFO  [Boot     ] ==============================================
+[   0.0197] INFO  [Boot     ] [1/5] HLE kernel online: 467 exports in 12 libraries
+[   0.0197] INFO  [Boot     ] [2/5] Mounting virtual filesystem
+[   0.0199] INFO  [VFS      ] Mounted /app0    -> ps5sgames\Wolf4SDL\extracted\Wolf4SDL
+[   0.0206] INFO  [VFS      ] Mounted /data    -> build\data
+[   0.0206] INFO  [VFS      ] Mounted /system_ex -> build\sys
+[   0.0207] INFO  [Boot     ] [3/5] Starting display
+[   0.1583] INFO  [Vulkan   ] Device: NVIDIA GeForce RTX 5060 Ti (API 1.4, dynamic rendering yes)
+[   0.1676] INFO  [Vulkan   ] Presenter ready on NVIDIA GeForce RTX 5060 Ti
+[   0.1677] INFO  [Boot     ] Renderer: Vulkan
+[   0.1677] INFO  [Boot     ] [4/5] Loading executable: ps5sgames\Wolf4SDL\extracted\Wolf4SDL\wolf3d-shareware.elf
+[   0.1702] INFO  [Loader   ] Mapped wolf3d-shareware.elf [ET_DYN] at 000002ac470d0000 (0x358000 bytes)
+[   0.1714] INFO  [Loader   ] wolf3d-shareware.elf: modules not found on disk (HLE/stubs used): libSceAudioOut.sprx, libSceKeyboard.sprx, libSceImeDialog.sprx, libSceLibcInternal.sprx, libSceNet.sprx
+[   0.1718] INFO  [Loader   ] wolf3d-shareware.elf is a PS5 payload SDK program: PS5S links it and calls main() directly
+[   0.1718] INFO  [Loader   ] Linked wolf3d-shareware.elf: 240 imports (240 HLE, 0 LLE, 0 stubbed), 0 exports
+[   0.1720] INFO  [Boot     ] [5/5] System running. Close the window to shut down.
+[   0.1721] INFO  [Runtime  ] Calling main() of wolf3d-shareware.elf (2 constructor(s) ran, argc 1)
+[   0.1725] INFO  [Pad      ] Pad library initialised (keyboard backend)
+[   0.1725] INFO  [SysSvc   ] Splash screen hidden
+[   0.1733] INFO  [Pad      ] Pad library initialised (keyboard backend)
+[   0.1734] INFO  [Kernel   ] MapDirectMemory 0x4000000 bytes (phys 0x0) -> 000002ac47c40000
+[   0.1734] INFO  [VideoOut ] Opened main video port (handle 1)
+[   0.1734] INFO  [VideoOut ] Registered 2 buffer(s) at index 0: 1920x1080 pitch 0 fmt 0x22000000 tiling 0
+[   0.2026] INFO  [Audio    ] Opened port 1: 48000 Hz, 2048 samples/grain, 2 channel(s) s16 (silent)
+[   0.2026] INFO  [Kernel   ] Created guest thread 'pthread'
+[   6.6821] INFO  [Boot     ] Shutdown (exit code 0)

@@ -1,0 +1,168 @@
+Register offsets (from source):
+  ok   SPI_SHADER_USER_DATA_PS_0     0x2C0C src/gpu/renderer.cpp
+  ok   SPI_SHADER_USER_DATA_VS_0     0x2C4C src/gpu/renderer.cpp
+  ok   DB_DEPTH_SIZE_XY              0xA007 src/gpu/renderer.cpp
+  ok   DB_Z_INFO                     0xA010 src/gpu/renderer.cpp
+  ok   DB_Z_WRITE_BASE               0xA014 src/gpu/renderer.cpp
+  ok   DB_Z_WRITE_BASE_HI            0xA01C src/gpu/renderer.cpp
+  ok   CB_TARGET_MASK                0xA08E src/gpu/renderer.cpp
+  ok   PA_CL_VPORT_XSCALE            0xA10F src/gpu/renderer.cpp
+  ok   CB_BLEND0_CONTROL             0xA1E0 src/gpu/renderer.cpp
+  ok   DB_DEPTH_CONTROL              0xA200 src/gpu/renderer.cpp
+  ok   PA_SU_SC_MODE_CNTL            0xA205 src/gpu/renderer.cpp
+  ok   CB_COLOR0_BASE                0xA318 src/gpu/renderer.cpp
+  ok   CB_COLOR0_INFO                0xA31C src/gpu/renderer.cpp
+  ok   CB_COLOR0_BASE_EXT            0xA390 src/gpu/renderer.cpp
+  ok   CB_COLOR0_ATTRIB2             0xA3B0 src/gpu/renderer.cpp
+  ok   CB_COLOR0_ATTRIB3             0xA3B8 src/gpu/renderer.cpp
+  ok   VGT_PRIMITIVE_TYPE            0xC242 src/gpu/renderer.cpp
+  ok   SPI_SHADER_PGM_LO_PS          0x2C08 src/gpu/pm4.h
+  ok   SPI_SHADER_PGM_HI_PS          0x2C09 src/gpu/pm4.h
+  ok   SPI_SHADER_PGM_LO_VS          0x2C48 src/gpu/pm4.h
+  ok   SPI_SHADER_PGM_HI_VS          0x2C49 src/gpu/pm4.h
+  ok   COMPUTE_PGM_LO                0x2E0C src/gpu/pm4.h
+  ok   COMPUTE_PGM_HI                0x2E0D src/gpu/pm4.h
+  ok   DB_DEPTH_SIZE_XY              0xA007 guest/agc/agc.c
+  ok   DB_Z_INFO                     0xA010 guest/agc/agc.c
+  ok   DB_Z_READ_BASE                0xA012 guest/agc/agc.c
+  ok   DB_Z_WRITE_BASE               0xA014 guest/agc/agc.c
+  ok   DB_Z_READ_BASE_HI             0xA01A guest/agc/agc.c
+  ok   DB_Z_WRITE_BASE_HI            0xA01C guest/agc/agc.c
+  ok   CB_TARGET_MASK                0xA08E guest/agc/agc.c
+  ok   PA_CL_VPORT_XSCALE            0xA10F guest/agc/agc.c
+  ok   CB_BLEND0_CONTROL             0xA1E0 guest/agc/agc.c
+  ok   DB_DEPTH_CONTROL              0xA200 guest/agc/agc.c
+  ok   PA_SU_SC_MODE_CNTL            0xA205 guest/agc/agc.c
+  ok   CB_COLOR0_BASE                0xA318 guest/agc/agc.c
+  ok   CB_COLOR0_INFO                0xA31C guest/agc/agc.c
+  ok   CB_COLOR0_BASE_EXT            0xA390 guest/agc/agc.c
+  ok   CB_COLOR0_ATTRIB2             0xA3B0 guest/agc/agc.c
+  ok   CB_COLOR0_ATTRIB3             0xA3B8 guest/agc/agc.c
+  ok   SPI_SHADER_PGM_LO_PS          0x2C08 guest/agc/agc.c
+  ok   SPI_SHADER_USER_DATA_PS_0     0x2C0C guest/agc/agc.c
+  ok   SPI_SHADER_PGM_LO_VS          0x2C48 guest/agc/agc.c
+  ok   SPI_SHADER_USER_DATA_VS_0     0x2C4C guest/agc/agc.c
+  ok   VGT_PRIMITIVE_TYPE            0xC242 guest/agc/agc.c
+Bit fields decoded by PS5S:
+  ok   CB_COLOR0_INFO.FORMAT                 [6:2]
+  ok   CB_COLOR0_INFO.NUMBER_TYPE            [10:8]
+  ok   CB_COLOR0_INFO.COMP_SWAP              [12:11]
+  ok   CB_COLOR0_ATTRIB2.MIP0_HEIGHT            [13:0]
+  ok   CB_COLOR0_ATTRIB2.MIP0_WIDTH             [27:14]
+  ok   CB_COLOR0_ATTRIB3.COLOR_SW_MODE          [18:14]
+  ok   DB_Z_INFO.FORMAT                 [1:0]
+  ok   DB_Z_INFO.SW_MODE                [8:4]
+  ok   DB_DEPTH_SIZE_XY.X_MAX                  [13:0]
+  ok   DB_DEPTH_SIZE_XY.Y_MAX                  [29:16]
+  ok   DB_DEPTH_CONTROL.Z_ENABLE               [1:1]
+  ok   DB_DEPTH_CONTROL.Z_WRITE_ENABLE         [2:2]
+  ok   DB_DEPTH_CONTROL.ZFUNC                  [6:4]
+  ok   CB_BLEND0_CONTROL.COLOR_SRCBLEND         [4:0]
+  ok   CB_BLEND0_CONTROL.COLOR_COMB_FCN         [7:5]
+  ok   CB_BLEND0_CONTROL.COLOR_DESTBLEND        [12:8]
+  ok   CB_BLEND0_CONTROL.ALPHA_SRCBLEND         [20:16]
+  ok   CB_BLEND0_CONTROL.ALPHA_COMB_FCN         [23:21]
+  ok   CB_BLEND0_CONTROL.ALPHA_DESTBLEND        [28:24]
+  ok   CB_BLEND0_CONTROL.SEPARATE_ALPHA_BLEND   [29:29]
+  ok   CB_BLEND0_CONTROL.ENABLE                 [30:30]
+  ok   PA_SU_SC_MODE_CNTL.CULL_FRONT             [0:0]
+  ok   PA_SU_SC_MODE_CNTL.CULL_BACK              [1:1]
+  ok   PA_SU_SC_MODE_CNTL.FACE                   [2:2]
+  ok   VGT_PRIMITIVE_TYPE.PRIM_TYPE              [5:0]
+  ok   SQ_IMG_RSRC_WORD1.BASE_ADDRESS_HI        [7:0]
+  ok   SQ_IMG_RSRC_WORD1.MIN_LOD                [19:8]
+  ok   SQ_IMG_RSRC_WORD1.FORMAT                 [28:20]
+  ok   SQ_IMG_RSRC_WORD1.WIDTH_LO               [31:30]
+  ok   SQ_IMG_RSRC_WORD2.WIDTH_HI               [11:0]
+  ok   SQ_IMG_RSRC_WORD2.HEIGHT                 [27:14]
+  ok   SQ_IMG_RSRC_WORD3.DST_SEL_X              [2:0]
+  ok   SQ_IMG_RSRC_WORD3.DST_SEL_Y              [5:3]
+  ok   SQ_IMG_RSRC_WORD3.DST_SEL_Z              [8:6]
+  ok   SQ_IMG_RSRC_WORD3.DST_SEL_W              [11:9]
+  ok   SQ_IMG_RSRC_WORD3.BASE_LEVEL             [15:12]
+  ok   SQ_IMG_RSRC_WORD3.LAST_LEVEL             [19:16]
+  ok   SQ_IMG_RSRC_WORD3.SW_MODE                [24:20]
+  ok   SQ_IMG_RSRC_WORD3.TYPE                   [31:28]
+  ok   SQ_IMG_SAMP_WORD0.CLAMP_X                [2:0]
+  ok   SQ_IMG_SAMP_WORD0.CLAMP_Y                [5:3]
+  ok   SQ_IMG_SAMP_WORD0.CLAMP_Z                [8:6]
+  ok   SQ_IMG_SAMP_WORD1.MIN_LOD                [11:0]
+  ok   SQ_IMG_SAMP_WORD1.MAX_LOD                [23:12]
+  ok   SQ_IMG_SAMP_WORD2.LOD_BIAS               [13:0]
+  ok   SQ_IMG_SAMP_WORD2.XY_MAG_FILTER          [21:20]
+  ok   SQ_IMG_SAMP_WORD2.XY_MIN_FILTER          [23:22]
+  ok   SQ_IMG_SAMP_WORD2.MIP_FILTER             [27:26]
+  ok   SQ_BUF_RSRC_WORD1.BASE_ADDRESS_HI        [15:0]
+  ok   SQ_BUF_RSRC_WORD1.STRIDE                 [29:16]
+  ok   SQ_BUF_RSRC_WORD3.DST_SEL_X              [2:0]
+  ok   SQ_BUF_RSRC_WORD3.FORMAT                 [18:12]
+Enum values:
+  ok   CompareFrag.FRAG_NEVER = 0
+  ok   CompareFrag.FRAG_LESS = 1
+  ok   CompareFrag.FRAG_LEQUAL = 3
+  ok   CompareFrag.FRAG_GREATER = 4
+  ok   CompareFrag.FRAG_ALWAYS = 7
+  ok   BlendOp.BLEND_ZERO = 0
+  ok   BlendOp.BLEND_ONE = 1
+  ok   BlendOp.BLEND_SRC_ALPHA = 4
+  ok   BlendOp.BLEND_ONE_MINUS_SRC_ALPHA = 5
+  ok   BlendOp.BLEND_CONSTANT_COLOR = 13
+  ok   CombFunc.COMB_DST_PLUS_SRC = 0
+  ok   CombFunc.COMB_SRC_MINUS_DST = 1
+  ok   CombFunc.COMB_MIN_DST_SRC = 2
+  ok   CombFunc.COMB_MAX_DST_SRC = 3
+  ok   CombFunc.COMB_DST_MINUS_SRC = 4
+  ok   VGT_DI_PRIM_TYPE.DI_PT_POINTLIST = 1
+  ok   VGT_DI_PRIM_TYPE.DI_PT_LINELIST = 2
+  ok   VGT_DI_PRIM_TYPE.DI_PT_LINESTRIP = 3
+  ok   VGT_DI_PRIM_TYPE.DI_PT_TRILIST = 4
+  ok   VGT_DI_PRIM_TYPE.DI_PT_TRIFAN = 5
+  ok   VGT_DI_PRIM_TYPE.DI_PT_TRISTRIP = 6
+  ok   VGT_DI_PRIM_TYPE.DI_PT_RECTLIST = 17
+  ok   ZFormat.Z_16 = 1
+  ok   ZFormat.Z_24 = 2
+  ok   ZFormat.Z_32_FLOAT = 3
+  ok   ColorFormat.COLOR_8 = 1
+  ok   ColorFormat.COLOR_16 = 2
+  ok   ColorFormat.COLOR_8_8 = 3
+  ok   ColorFormat.COLOR_32 = 4
+  ok   ColorFormat.COLOR_16_16 = 5
+  ok   ColorFormat.COLOR_10_11_11 = 6
+  ok   ColorFormat.COLOR_11_11_10 = 7
+  ok   ColorFormat.COLOR_2_10_10_10 = 9
+  ok   ColorFormat.COLOR_8_8_8_8 = 10
+  ok   ColorFormat.COLOR_32_32 = 11
+  ok   ColorFormat.COLOR_16_16_16_16 = 12
+  ok   ColorFormat.COLOR_32_32_32_32 = 14
+  ok   ColorFormat.COLOR_5_6_5 = 16
+  ok   SurfaceNumber.NUMBER_UNORM = 0
+  ok   SurfaceNumber.NUMBER_UINT = 4
+  ok   SurfaceNumber.NUMBER_SRGB = 6
+  ok   SurfaceNumber.NUMBER_FLOAT = 7
+  ok   SurfaceSwap.SWAP_STD = 0
+  ok   SurfaceSwap.SWAP_ALT = 1
+Image formats (src/gpu/formats.cpp table vs GFX10_FORMAT):
+  ok   format   1 = 8_UNORM
+  ok   format   2 = 8_SNORM
+  ok   format   7 = 16_UNORM
+  ok   format   8 = 16_SNORM
+  ok   format  13 = 16_FLOAT
+  ok   format  14 = 8_8_UNORM
+  ok   format  15 = 8_8_SNORM
+  ok   format  22 = 32_FLOAT
+  ok   format  23 = 16_16_UNORM
+  ok   format  24 = 16_16_SNORM
+  ok   format  29 = 16_16_FLOAT
+  ok   format  43 = 11_11_10_FLOAT
+  ok   format  50 = 2_10_10_10_UNORM
+  ok   format  51 = 2_10_10_10_SNORM
+  ok   format  56 = 8_8_8_8_UNORM
+  ok   format  57 = 8_8_8_8_SNORM
+  ok   format  64 = 32_32_FLOAT
+  ok   format  65 = 16_16_16_16_UNORM
+  ok   format  66 = 16_16_16_16_SNORM
+  ok   format  71 = 16_16_16_16_FLOAT
+  ok   format  77 = 32_32_32_32_FLOAT
+
+161/161 checks match AMD's RDNA2 register database
+ALL REGISTER CHECKS PASSED
